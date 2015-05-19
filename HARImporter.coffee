@@ -23,7 +23,7 @@ HARImporter = ->
 
       # Add body if present in HAR data
       if entry.request.postData?.text?
-        request.setBody entry.request.postData.text
+        request.body = entry.request.postData.text
 
       # Add the request inside the group
       group.appendChild(request)
