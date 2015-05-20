@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- npm install coffee-script
+before_script:
+- ./node_modules/.bin/cake archive
+script:
+- ./node_modules/.bin/cake test
+deploy:
+  provider: releases
+  api_key:
+    secure: XinH3DwcXosG8K58EBiv3HUhW3adVJXSOilqGogwyIGdfdbDofkYLAfUA1sDMb71mbWQ89ge7vzw7n0Nt4rOm7GaDAGD14APhJ2glE6o4MZ4Cjv3HgpPmaECfLfZrugfm4M1Yee9T4XXRaFfSAjmNrn/c+3w685/Klaxy9oVTc1SCjqAu8BUB28GrDZfHVO3ylbQZxF9doOa4uQpNEz7PulS+bCcJrYzZA5+NUiUUhq5AZh+EKgs/HbeW79CPtx9ghd7WF9F0ct4UxfFHAlUdZLnuNPwJbmWqeO2QG9+uRW38WQWUboTpWxweblY3PQih/tQmaf8qgZHFHQ0P3gbDFJ0Ym4L1wrz12yAP4Kzv02EeciAuSpzSbX25MGbGZz9KcIDxMzweqvtxYJVzG5KLPfdRIR9qFeQu9wBf33nqPKz/lOG+cY+rSGAPhU2oQOHy90NtmTCUstaFNrlGMzAg1qQN6kb0tOdRwAyTW4fCso1ienEoav3YSKPdiT15gFnwMTBjpxiercJ4k29i2M31z8bpsFxxIF2gZFwTple8TotEZfqqHv2uNL5GP9xFebSJ9nte7PcE4gQhSHJ43m5B+ihXKwum+21uI/7e8iOSI0aEEzDP1ayp5l31PLZWdjc0Ki0PiF2zqT/9Um0/+INSk3dUi39alhfKmx5THJW4Pk=
+  file: build/HARImporter.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    repo: luckymarmot/Paw-HARImporter
