@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/luckymarmot/Paw-HARImporter.svg?branch=master)](https://travis-ci.org/luckymarmot/Paw-HARImporter)
+
 # Paw HAR importer
 This importer allows you to import HAR exports from for instance Chrome into Paw. You can then manipulate the data.
 
