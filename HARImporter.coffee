@@ -18,7 +18,7 @@ HARImporter = ->
       if entry.request.headers?
         for header in entry.request.headers
           # Filter out core headers
-          unless header.name.substring(0, 1) == ':'
+          if header.name.substring(0, 1) != ':' and header.name.toLowerCase() != "content-length"
             request.setHeader header.name, header.value
 
       # Add body if present in HAR data
