@@ -69,7 +69,13 @@ HARImporter = ->
 
       # Add body if present in HAR data
       if entry.request.postData?.text?
-        request.body = entry.request.postData.text
+        if entry.request.postData.mimeType.startsWith('application/json')
+          try
+            request.jsonBody = JSON.parse(entry.request.postData.text)
+          catch e
+            request.body = entry.request.postData.text
+        else
+          request.body = entry.request.postData.text
 
       # Add the request inside the group
       group.appendChild(request)
