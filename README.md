@@ -1,24 +1,25 @@
 [![Build Status](https://travis-ci.org/luckymarmot/Paw-HARImporter.svg?branch=master)](https://travis-ci.org/luckymarmot/Paw-HARImporter)
 
 # Paw HAR importer
-This importer allows you to import HAR exports from for instance Chrome into Paw. You can then manipulate the data.
 
-## Authors
-**Jeroen Visser** @jeroenvisser101
+This importer allows you to import HAR exports (e.g. from Chrome Dev Tools) into Paw.
 
 ## Contributing
-If you want to contribute, this is how you build: (we assume that you've already installed cake and coffeescript globally)
 
-``` shell
-npm install
-cake build
-cake install
+If you want to contribute, this is how to build the extension and install it to your Paw settings:
+
+```shell
+yarn install # or npm install
+make install
 ```
 
-And while developing, you can use the watcher:
-``` shell
-cake watch
+To make a distributable archive:
+
+```shell
+make clean && make archive
 ```
 
 ## License
-This file is licensed under MIT license. License file can be found in this repository.
+
+MIT License. Copyright 2015-2017 Paw Inc.
+Originally created by **Jeroen Visser** @jeroenvisser101
