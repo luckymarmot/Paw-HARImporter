@@ -121,7 +121,9 @@ class HarRequestImporter {
 
     const { text, mimeType, params } = postData
 
-    if ('string' === typeof text) {
+    if (mimeType == null) {
+      pawRequest.body = text
+    } else if ('string' === typeof text) {
       if (mimeType.startsWith('application/json')) {
         try {
           pawRequest.jsonBody = JSON.parse(text)
@@ -213,7 +215,12 @@ class HarRequestImporter {
         if ('string' === typeof text) {
           let decodedString = text
           if (encoding === 'base64') {
-            decodedString = utf8.decode(base64.decode(text))
+            try {
+              decodedString = utf8.decode(base64.decode(text))
+            } catch (e) {
+              decodedString = "Unable to decode body."
+            }
+
           }
           description += '\n'
           description += '### Body\n\n'
